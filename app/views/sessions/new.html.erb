@@ -1,0 +1,20 @@
+<h1>Log in</h1>
+<%= form_for(:session, url:login_path) do |f| %>
+<%# これでparams[:session][:email]
+         params[:session][:password]となりハッシュで取り出せる %>
+    <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+    </div>
+
+    <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+    </div>
+
+    <div class="action">
+        <%= f.submit "ログイン"%>
+    </div>
+
+    <p><%= link_to "新しいアカウントを作成する" ,signup_path %></p>
+<% end %>

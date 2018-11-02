@@ -1,6 +1,10 @@
 <header>
-<h1><%= link_to "Task", root_path %></h1>
-    <nav>
+<%# 別windowで開く場合 %>
+<%# <h1><%= link_to root_path , target:"_blank" do %>
+    <%# <%= image_tag"logo.PNG" %> 
+    <%# <% end</h1> %>
+    <h1><%= link_to image_tag("logo.PNG",alt:"logo", size:"150x150"),root_path %></h1>
+    <menu class="header-list">
         <ul>
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "Sign up", signup_path  %></li>
@@ -13,6 +17,5 @@
             <li><%= link_to "Log in", login_path %></li>
             <% end %>
         </ul>
-
-    </nav>
+    </menu>
 </header>

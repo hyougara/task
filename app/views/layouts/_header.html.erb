@@ -7,6 +7,8 @@
     <menu class="header-list">
         <ul>
             <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Create Task", micropost_path %></li>
+            <li><%= link_to "Task一覧", microposts_path %></li>
             <li><%= link_to "Sign up", signup_path  %></li>
              <%# if文でloginしたらuser_setting画面とかにいくようにする %>
              <% if logged_in? %>

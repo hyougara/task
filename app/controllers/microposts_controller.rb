@@ -18,7 +18,7 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.new(micropost_params)
     if @micropost.save
       flash.now[:notice] = "登録しました"
-      redirect_to microposts_path
+      redirect_to @micropost
     else
       flash.now[:notice] = "登録できませんでした"
       render "new"
@@ -31,19 +31,16 @@ class MicropostsController < ApplicationController
 
   def update
     if @micropost.update(micropost_params)
-      redirect_to microposts_path
+      redirect_to @micropost
     else
-      render "edit"
+      render :edit
     end
 
   end
 
   def destroy
-    if @micropost.destroy
-    redirect_to microposts_path
-    else
-      render "消せてないよ"
-    end
+    @micropost.destroy
+    redirect_to microposts_url
   end
 
   private

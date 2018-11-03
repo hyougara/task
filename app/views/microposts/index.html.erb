@@ -5,8 +5,8 @@
     <ul>
         <li><%= micropost.title %></li>
         <li><%= micropost.content %></li>
-        <%= link_to "編集" ,edit_micropost_path(@micropost) %>
-        <%= link_to "削除" ,edit_micropost_path(@micropost) %>
+        <%= link_to "編集" ,edit_micropost_path(micropost.id) %>
+    <%= link_to "削除" ,micropost ,data: :method, data: { confirm:"Are you sure?"} %>
     </ul>
     <% end %>
 </div>

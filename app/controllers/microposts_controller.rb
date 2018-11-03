@@ -47,12 +47,12 @@ class MicropostsController < ApplicationController
   end
 
   private
-  # before_actionwp定義
+  # before_actionを定義
     def set_micropost
       @micropost = Micropost.find(params[:id])
     end
 # micropost_paramsを定義
     def micropost_params
-      params.require(:micropost).permit(:title, :content)
+      params.require(:micropost).permit(:title, :content, :category_id)
     end
 end

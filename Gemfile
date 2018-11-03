@@ -10,7 +10,8 @@ gem "rails-i18n"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+gem "sqlite3"
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -47,6 +48,7 @@ end
 
 group :production do 
   gem "pg"
+  gem 'rails_12factor'
 end
 
 group :development do

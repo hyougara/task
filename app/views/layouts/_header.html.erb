@@ -3,22 +3,38 @@
 <%# <h1><%= link_to root_path , target:"_blank" do %>
     <%# <%= image_tag"logo.PNG" %> 
     <%# <% end</h1> %>
-    <h1><%= link_to image_tag("logo.png",alt:"logo", size:"300x150"),root_path %></h1>
-    <menu class="header-list">
-        <ul>
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Create Task", micropost_path %></li>
-            <li><%= link_to "Task一覧", microposts_path %></li>
-            <li><%= link_to "カテゴリ一覧", categories_path %></li>
-            <li><%= link_to "Sign up", signup_path  %></li>
-             <%# if文でloginしたらuser_setting画面とかにいくようにする %>
-             <% if logged_in? %>
-             <li><%= link_to "My account" ,current_user %></li>
-             <li><%= link_to "Setting" ,"#" %></li>
-             <li><%= link_to "Log out" , logout_path ,method: :delete %></li>
-             <% else %>
-            <li><%= link_to "Log in", login_path %></li>
-            <% end %>
-        </ul>
-    </menu>
+    <h1><%= link_to image_tag("logo.PNG",alt:"logo", size:"300x150"),root_path %></h1>
+
+<div class="btn-group" role="group" aria-label="...">
+  <button type="button" class="btn btn-default"><li><%= link_to "Home", root_path %></li></button>
+  <button type="button" class="btn btn-default"><li><%= link_to "Sign up", signup_path  %></li></button>
+
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" 
+        aria-haspopup="true" aria-expanded="false">
+        Task
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li><%= link_to "Create Task", micropost_path %></li>
+        <li><%= link_to "Task一覧", microposts_path %></li>
+    </ul>
+  </div>
+  <% if logged_in?%>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" 
+        aria-haspopup="true" aria-expanded="false">
+        MY page ▼
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li><%= link_to "My account" ,current_user %></li>
+        <li><%= link_to "Setting" ,"#" %></li>
+        <li><%= link_to "Log out" , logout_path ,method: :delete %></li>
+        <% else %>
+        <button type="button" class="btn btn-default"><li><%= link_to "Log in", login_path %></li></button>
+        <% end %>
+    </ul>
+  </div>
+</div>
 </header>

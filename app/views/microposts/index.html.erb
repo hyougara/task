@@ -1,0 +1,12 @@
+<% provide(:title ,"Task一覧") %>
+<h1>Task一覧</h1>
+<div class="micropost">
+    <% @micropost.each do |micropost| %>
+    <ul>
+        <li><%= micropost.title %></li>
+        <li><%= micropost.content %></li>
+        <%= link_to "編集" ,edit_micropost_path(micropost.id) %>
+    <%= link_to "削除" ,micropost ,data: :method, data: { confirm:"Are you sure?"} %>
+    </ul>
+    <% end %>
+</div>

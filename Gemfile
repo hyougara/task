@@ -6,6 +6,9 @@ gem "bootstrap-sass","~>3.3.6"
 gem "jquery-ui-rails"
 gem "jquery-rails"
 gem "rails-i18n"
+gem 'enum_help'
+gem 'acts-as-taggable-on'
+gem 'kaminari'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'

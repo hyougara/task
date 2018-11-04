@@ -1,14 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>title:</strong>
-  <%= @micropost.title %>
-</p>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @micropost.title %></h3>
+  </div>
+  <div class="panel-body">
+    <p><%= @micropost.content %></p>
+    <p><%= @micropost.category.name %></p>
+    <%= link_to 'Edit', edit_micropost_path(@micropost) %> |
+    <%= link_to 'Back', microposts_path %>
+  </div>
+</div>
 
-<p>
-  <strong>content:</strong>
-  <%= @micropost.content %>
-</p>
 
-<%= link_to 'Edit', edit_micropost_path(@micropost) %> |
-<%= link_to 'Back', microposts_path %>

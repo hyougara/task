@@ -14,27 +14,32 @@ body {
 // .create-task{
 //     display: inline;
 // }
-// header {
-//     width: 100%;
-//     height: 150px;
-//     background-color: rgb(155, 241, 181);
+header {
+    width: 100%;
+    height: 150px;
+    background-color: rgb(155, 241, 181);
+    margin-bottom: 70px;
+}
 
-//     //  ul {
-//     //     text-decoration: none;
-//     //     list-style: none;
-//     //     float: right;
-//     //     margin-top: -50px;
-//     //     //    li{
-//     //     // display: inline-block;
-//     //     // border-right:solid 1px #333;
-//     //     // margin: 10px 10px 0 0;
-//     //     // padding: 0 10px 0 0;
+    //  ul {
+    //     text-decoration: none;
+    //     list-style: none;
+    //     float: right;
+    //     margin-top: -50px;
+    //     //    li{
+    //     // display: inline-block;
+    //     // border-right:solid 1px #333;
+    //     // margin: 10px 10px 0 0;
+    //     // padding: 0 10px 0 0;
 
-//     //     }
+    //     }
 // }
 .btn-group{
     list-style: none;
     float: right;
+}
+.header-list{
+    padding-bottom: -50px;
 }
 nav ul li{
     position: relative;

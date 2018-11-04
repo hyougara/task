@@ -4,6 +4,7 @@ class MicropostsController < ApplicationController
   before_action :set_micropost, only: [:show, :edit, :update, :destroy]
   def index
     @micropost = Micropost.all
+    @category = Category.all
   end
 
   def new
@@ -31,7 +32,7 @@ class MicropostsController < ApplicationController
 
   def update
     if @micropost.update(micropost_params)
-      redirect_to @micropost
+      redirect_to microposts_path
     else
       render :edit
     end

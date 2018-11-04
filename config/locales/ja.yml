@@ -7,8 +7,12 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: 確認用
-        
-    attributes:
+     
       micropost:
-        title: タイトル
-        content: 内容
+          title: タイトル
+          content: 内容
+          category: カテゴリ
+
+          draft: 未着手
+          working: "着手"
+          published: "完了"

@@ -15,9 +15,7 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                    <% @category.each do |category|%>
-                    <li><%= link_to category.name, categories_path %></li>
-                    <% end %>
+                    <li><%= link_to @category.name, categories_path %></li>
                 </ul>
             </div>
 

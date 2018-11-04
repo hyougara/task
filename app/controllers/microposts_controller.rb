@@ -51,6 +51,6 @@ class MicropostsController < ApplicationController
     end
 # micropost_paramsを定義
     def micropost_params
-      params.require(:micropost).permit(:title, :content, :category_id)
+      params.require(:micropost).permit(:title, :content, :category_id, :status)
     end
 end

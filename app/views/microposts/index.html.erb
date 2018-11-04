@@ -10,6 +10,7 @@
             <div class="panel-body">
                 <p><%= micropost.content %></p>
                 <p><%= micropost.category.name %></p>
+                <p><%= micropost.status %></p>
                 <%= link_to "編集" ,edit_micropost_path(micropost.id) %>
                 <%= link_to "削除" ,micropost ,method: :delete, data: { confirm:"Are you sure?"} %>
             </div>

@@ -1,8 +1,10 @@
 <% provide(:title ,"Task一覧") %>
 <h1>Task一覧</h1>
 <div class="micropost">
+    
     <% @micropost.each do |micropost| %>
     <ul>
+    
         <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 class="panel-title"><%= micropost.title %></h3>

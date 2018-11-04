@@ -5,6 +5,8 @@ class MicropostsController < ApplicationController
   def index
     @micropost = Micropost.all
     @category = Category.all
+    # viewのformで取得したパラメーターをモデルに返す
+    @micropost = Micropost.search(params[:search])
   end
 
   def new

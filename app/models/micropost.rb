@@ -7,7 +7,15 @@ class Micropost < ApplicationRecord
     enum status:{draft: 0 ,woking: 1 ,pulished: 2}
     # デフォルトで投稿が降順になる、全てのクエリに適用
     default_scope -> {order(created_at: :desc) }    
-            
+    
+    def self.search(search)# selfでクラスメソッドとしてる
+        if search # Controllerから渡されたパラメーターが!= nilの場合は、titleカラムを部分一致検索
+            Micropost.where(['title LIKE ?',"%#{search}%"])
+        else
+            Micropost.all
+        end
+    end
+    
     # class << self
     #     def localed_statuses
     #         statuses.keys.map do |s|

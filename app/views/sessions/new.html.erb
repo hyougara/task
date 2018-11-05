@@ -1,5 +1,7 @@
 <% provide(:title, "Log in") %>
 <h1>Log in</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 <%= form_for(:session, url:login_path) do |f| %>
 <%# これでparams[:session][:email]
          params[:session][:password]となりハッシュで取り出せる %>
@@ -19,3 +21,5 @@
 
     <p><%= link_to "新しいアカウントを作成する" ,signup_path %></p>
 <% end %>
+    </div>
+</div>

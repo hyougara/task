@@ -19,6 +19,7 @@ class MicropostsController < ApplicationController
 
   def create
     @micropost = Micropost.new(micropost_params)
+    
     if @micropost.save
       flash.now[:notice] = "登録しました"
       redirect_to @micropost
@@ -53,6 +54,6 @@ class MicropostsController < ApplicationController
     end
 # micropost_paramsを定義
     def micropost_params
-      params.require(:micropost).permit(:title, :content, :category_id, :status)
+      params.require(:micropost).permit(:title, :content, :category_id, :status, :user_id)
     end
 end

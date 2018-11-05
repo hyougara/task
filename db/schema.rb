@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_03_170724) do
+ActiveRecord::Schema.define(version: 2018_11_05_154411) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2018_11_03_170724) do
     t.datetime "updated_at", null: false
     t.integer "category_id"
     t.integer "status"
+    t.integer "user_id"
     t.index ["category_id"], name: "index_microposts_on_category_id"
   end
 

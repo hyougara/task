@@ -1,33 +1,36 @@
 <% provide(:title ,"Task一覧") %>
 <h1><%= link_to "Task一覧" ,microposts_path %> </h1>
-<div class="search">
-    <%= form_tag microposts_path, :method => 'get' do %>
-        <p>
-            <%= text_field_tag :search ,params[:search] %>
-            <%= submit_tag "Search" , :title => nil %>
-        </p>
-    <% end %>
-</div>
-<div class="micropost">
-    
-    <% @micropost.each do |micropost| %>
-    <ul>
-
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="search">
+        <%= form_tag microposts_path, :method => 'get' do %>
+            <p>
+                <%= text_field_tag :search ,params[:search] %>
+                <%= submit_tag "Search" , :title => nil %>
+            </p>
+        <% end %>
+    </div>
+    <div class="micropost">
         
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title"><%= micropost.title %></h3>
+        <% @micropost.each do |micropost| %>
+        <ul>
+
+            
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><%= micropost.title %></h3>
+                </div>
+                <div class="panel-body">
+                    <p><%= micropost.content %></p>
+                    <p><%= micropost.category.name %></p>
+                    <p><%= micropost.status %></p>
+                    <%= link_to "編集" ,edit_micropost_path(micropost.id) %>
+                    <%= link_to "削除" ,micropost ,method: :delete, data: { confirm:"Are you sure?"} %>
+                </div>
             </div>
-            <div class="panel-body">
-                <p><%= micropost.content %></p>
-                <p><%= micropost.category.name %></p>
-                <p><%= micropost.status %></p>
-                <%= link_to "編集" ,edit_micropost_path(micropost.id) %>
-                <%= link_to "削除" ,micropost ,method: :delete, data: { confirm:"Are you sure?"} %>
-            </div>
-        </div>
-    </ul>
-  <% end %>
+        </ul>
+    <% end %>
+    </div>
+  </div>
 </div>
 
-<%# 検索機能追加 %>

@@ -1,5 +1,5 @@
 <% provide(:title ,"Task一覧") %>
-<h1>Task一覧</h1>
+<h1><%= link_to "Task一覧" ,microposts_path %> </h1>
 <div class="search">
     <%= form_tag microposts_path, :method => 'get' do %>
         <p>
@@ -12,7 +12,8 @@
     
     <% @micropost.each do |micropost| %>
     <ul>
-    
+
+        
         <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 class="panel-title"><%= micropost.title %></h3>

@@ -12,7 +12,7 @@ ja:
           title: タイトル
           content: 内容
           category: カテゴリ
-
+        
           draft: 未着手
           working: "着手"
           published: "完了"

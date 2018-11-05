@@ -1,4 +1,4 @@
-# ja:
+        # ja:
 #   activerecord:
 #     attributes:
 #      micropost:
@@ -7,9 +7,10 @@
 #         working: "着手"
 #         published: "完了"
 ja:
-  enum:
-    micropost:
-      status:
-        draft: 未着手
-      working: 着手
-        published: 完了
+  status:
+    enum:
+      micropost:
+        status:
+          draft: 未着手
+          working: 着手
+          published: 完了

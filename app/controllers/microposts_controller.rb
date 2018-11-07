@@ -2,11 +2,16 @@ class MicropostsController < ApplicationController
 
   # before_actionを定義すれば共通で使用出来、各action前に実行される
   before_action :set_micropost, only: [:show, :edit, :update, :destroy]
+  
   def index
     @micropost = Micropost.all
     @category = Category.all
     # viewのformで取得したパラメーターをモデルに返す
     @micropost = Micropost.search(params[:search])
+    # ransack
+    @search = Micropost.ransack(params[:q])
+    @micropost = @search.result
+    @micropost = Micropost.order(create_on: :asc)
   end
 
   def new
@@ -54,6 +59,7 @@ class MicropostsController < ApplicationController
     end
 # micropost_paramsを定義
     def micropost_params
-      params.require(:micropost).permit(:title, :content, :category_id, :status, :user_id)
+      params.require(:micropost).permit(:title, :content, :category_id, :status, :user_id, :create_on, :title_cont,
+        :category_id_in, :status_in)
     end
 end

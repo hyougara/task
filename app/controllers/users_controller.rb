@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user , only: [:edit, :update]
-  before_action :correct_user , only: [:edit, :update]
+  before_action :logged_in_user , only: [:index, :edit, :update]
+  # before_action :correct_user ,only: [:edit, :destroy]
 
   def index
     @users = User.all
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation,:image)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation,:image,)
     end
 # ログイン済みか確認
     def logged_in_user

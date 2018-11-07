@@ -21,6 +21,11 @@
     <%= form.select :status, Micropost.statuses.keys, :selected=>Micropost.statuses[@micropost.status] %>
 </div>
 
+<div class="field">
+    <%= form.label :create_on ,"期限" %>
+    <%= form.date_select :create_on , use_month_numbers: true%>
+</div>
+
 
 <div class="actions">
     <%= form.submit "作成"%>

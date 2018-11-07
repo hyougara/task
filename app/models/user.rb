@@ -4,5 +4,5 @@ class User < ApplicationRecord
     # passwordとpassword_confirmationが追加される
     has_secure_password
     has_many :categories 
-    has_many :microposts ,dependent: :destroy
+    # has_many :microposts ,dependent: :destroy
 end

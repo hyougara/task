@@ -45,7 +45,7 @@
                 <th>content</th>
                 <th>category</th>
                 <th>status</th>
-                <th>limit</th>
+                <th><%= sort_link(@search,:create_on) %></th>
                 <th>priority</th>
             </tr>
             <% @micropost.each do |micropost| %>

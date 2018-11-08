@@ -11,7 +11,8 @@ class MicropostsController < ApplicationController
     # ransack
     @search = Micropost.ransack(params[:q])
     @micropost = @search.result
-    @micropost = Micropost.order(create_on: :asc)
+    # これだとソートできなくなる
+    # @micropost = Micropost.order(create_on: :asc)
   end
 
   def new
@@ -27,7 +28,7 @@ class MicropostsController < ApplicationController
     
     if @micropost.save
       flash.now[:notice] = "登録しました"
-      redirect_to @micropost
+      redirect_to microposts_path
     else
       flash.now[:notice] = "登録できませんでした"
       render "new"
@@ -59,7 +60,7 @@ class MicropostsController < ApplicationController
     end
 # micropost_paramsを定義
     def micropost_params
-      params.require(:micropost).permit(:title, :content, :category_id, :status, :user_id, :create_on, :title_cont,
-        :category_id_in, :status_in)
+      params.require(:micropost).permit(:title, :content, :category_in, :status, :user_id, :create_on, :title_cont,
+        :category_id_in, :status_in, :priority, :create_on_in)
     end
 end

@@ -3,32 +3,40 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <div class="search">
-        <%= form_tag microposts_path, :method => 'get' do %>
+         <%# form_tag microposts_path, :method => 'get' do 
             <p>
-                <%= text_field_tag :search ,params[:search] %>
-                <%= submit_tag "Search"  %>
+                < text_field_tag :search ,params[:search] 
+                submit_tag "Search"  
             </p>
-        <% end %>
+        end %>
 <%# ransack版 %>
         <%= search_form_for @search  do |f| %>
             <div class="form-group">
-                <%= f.label :title_cont, "title" %>
+                <%= f.label :title_cont, "タイトル" %>
                 <%= f.search_field :title_cont, class: "form-control" %>
             </div>
             <div class="form-group">
-                <%= f.label :status, "status" %>
-                <%= f.select :status_in,Micropost.statuses.keys %>
+                <%= f.label :status, "進捗度" %>
+                <%= f.select :status_in,Micropost.statuses, :include_blank =>'指定なし' %>
             </div>
 
             <div class="form-group">
-                <%= f.label :category %> 
-                <%= f.collection_check_boxes :category_id_in, @category,:id ,:name  %>
+                <%= f.label :category, "カテゴリ" %> 
+                <%= f.collection_select :category_id_in, @category,:id ,:name ,:include_blank => '指定なし' %>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :priority , "優先度" %> 
+                <%= f.select :priority_in, Micropost.priorities, :include_blank => '指定なし' %>
+            </div>
+                     <div class="form-group">
+                <%=f.label :create_on, "期限" %> 
+                <%= f.date_field :create_on_in %>
             </div>
             <div class="actions">
-                <%= f.submit "Search" %>
+                <%= f.submit "検索" %>
             </div>
         <% end %>
-
     </div>
     <div class="micropost">
         <table class="table table-condensed">
@@ -47,7 +55,7 @@
                 <td><%= micropost.category_id %></td>
                 <td><%= micropost.status %></td>
                 <td><%= micropost.create_on %></td>
-                <td></td>
+                <td><%= micropost.priority %></td>
                 <td><%= link_to "編集" ,edit_micropost_path(micropost.id) %></td>
                 <td><%= link_to "削除" ,micropost ,method: :delete, data: { confirm:"Are you sure?"} %></td>                    
                         

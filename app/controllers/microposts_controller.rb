@@ -8,9 +8,13 @@ class MicropostsController < ApplicationController
     @category = Category.all
     # viewのformで取得したパラメーターをモデルに返す
     @micropost = Micropost.search(params[:search])
+
     # ransack
     @search = Micropost.ransack(params[:q])
     @micropost = @search.result
+    # paginateをつけると期限がソートできなくなる
+    # @micropost = Micropost.page(params[:page])  
+
     # これだとソートできなくなる
     # @micropost = Micropost.order(create_on: :asc)
   end

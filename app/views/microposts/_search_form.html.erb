@@ -30,19 +30,19 @@
 <div class="micropost">
     <table class="table table-condensed">
         <tr>
-            <th>title</th>
-            <th>content</th>
-            <th>category</th>
-            <th>status</th>
-            <th><%= sort_link(@search,:create_on) %></th>
-            <th>priority</th>
+            <th>タイトル</th>
+            <th>内容</th>
+            <th>カテゴリ</th>
+            <th>進捗度</th>
+            <th><%= sort_link(@search,:create_on,"期限") %></th>
+            <th>優先度</th>
         </tr>
 
         <% @micropost.each do |micropost| %>
         <tr>
             <td><%= micropost.title %></td>
             <td><%= micropost.content %></td>
-            <td><%= micropost.category_id %></td>
+            <td><%= micropost.category.name %></td>
             <td><%= micropost.status %></td>
             <td><%= micropost.create_on %></td>
             <td><%= micropost.priority %></td>

@@ -4,7 +4,7 @@ class MicropostsController < ApplicationController
   before_action :set_micropost, only: [:show, :edit, :update, :destroy]
   
   def index
-    @micropost = Micropost.all
+    # @micropost = Micropost.all
     @category = Category.all
     # viewのformで取得したパラメーターをモデルに返す
     @micropost = Micropost.search(params[:search])
@@ -27,10 +27,10 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.new(micropost_params)
     
     if @micropost.save
-      flash.now[:notice] = "登録しました"
+      flash.now[:succese] = "登録しました"
       redirect_to microposts_path
     else
-      flash.now[:notice] = "登録できませんでした"
+      flash.now[:danger] = "登録できませんでした"
       render "new"
     end
   end

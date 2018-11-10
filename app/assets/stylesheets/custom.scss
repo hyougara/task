@@ -6,7 +6,6 @@
 }
 body {
     
-    max-width:  1000px;
     height: 100%;
     background-color: antiquewhite;
 }
@@ -41,7 +40,7 @@ header {
 
 nav ul li{
     position: relative;
-    float: right;
+    float: left;
     margin-right: 45px;
     list-style: none;
     color: #0bd;
@@ -75,7 +74,53 @@ nav li .drop-down li :hover{
     text-align: center;
 
 }
+// --- form---
+.form{
 
+    border: solid 1px rgb(204, 204, 204);
+    border-radius: 10px;
+    width: 600px;
+}
+.field,.actions, p{
+    margin-left:200px;
+}
+.actions{
+    margin-left: 300px;
+}
+
+.title-logo{
+    margin-left:30px;
+}
+
+
+.col-md-6{
+    margin-left:0;
+}
+
+// --- user ---
+.user-page{
+    margin-top: 10px;
+    border:solid 1px rgba(51, 51, 51, 0.781);
+}
+
+
+
+
+
+
+
+
+
+// --- micropost ---
+
+
+
+
+
+
+
+
+// --- footer ---
 footer{
     width: 100%;
     height:50px;

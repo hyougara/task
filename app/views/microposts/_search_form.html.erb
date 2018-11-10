@@ -1,55 +1,59 @@
-<div class="search">
-    <%= search_form_for @search  do |f| %>
-        <div class="form-group">
-            <%= f.label :title_cont, "タイトル" %>
-            <%= f.search_field :title_cont, class: "form-control" %>
-        </div>
-        <div class="form-group">
-            <%= f.label :status, "進捗度" %>
-            <%= f.select :status_in,Micropost.statuses, :include_blank =>'指定なし' %>
-        </div>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="search">
+            <%= search_form_for @search  do |f| %>
+                <div class="form-group">
+                    <%= f.label :title_cont, "タイトル" %>
+                    <%= f.search_field :title_cont, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :status, "進捗度" %>
+                    <%= f.select :status_in,Micropost.statuses, :include_blank =>'指定なし' %>
+                </div>
 
-        <div class="form-group">
-            <%= f.label :category, "カテゴリ" %> 
-            <%= f.collection_select :category_id_in, @category,:id ,:name ,:include_blank => '指定なし' %>
-        </div>
+                <div class="form-group">
+                    <%= f.label :category, "カテゴリ" %> 
+                    <%= f.collection_select :category_id_in, @category,:id ,:name ,:include_blank => '指定なし' %>
+                </div>
 
-        <div class="form-group">
-            <%= f.label :priority , "優先度" %> 
-            <%= f.select :priority_in, Micropost.priorities, :include_blank => '指定なし' %>
+                <div class="form-group">
+                    <%= f.label :priority , "優先度" %> 
+                    <%= f.select :priority_in, Micropost.priorities, :include_blank => '指定なし' %>
+                </div>
+                            <div class="form-group">
+                    <%=f.label :create_on, "期限" %> 
+                    <%= f.date_field :create_on_in %>
+                </div>
+                <div class="actions">
+                    <%= f.submit "検索" %>
+                </div>
+            <% end %>
         </div>
-                    <div class="form-group">
-            <%=f.label :create_on, "期限" %> 
-            <%= f.date_field :create_on_in %>
-        </div>
-        <div class="actions">
-            <%= f.submit "検索" %>
-        </div>
-    <% end %>
-</div>
-<div class="micropost">
-    <table class="table table-condensed">
-        <tr>
-            <th>タイトル</th>
-            <th>内容</th>
-            <th>カテゴリ</th>
-            <th>進捗度</th>
-            <th><%= sort_link(@search,:create_on,"期限") %></th>
-            <th>優先度</th>
-        </tr>
+        <div class="micropost">
+            <table class="table table-condensed">
+                <tr>
+                    <th>タイトル</th>
+                    <th>内容</th>
+                    <th>カテゴリ</th>
+                    <th>進捗度</th>
+                    <th><%= sort_link(@search,:create_on,"期限") %></th>
+                    <th>優先度</th>
+                </tr>
 
-        <% @micropost.each do |micropost| %>
-        <tr>
-            <td><%= micropost.title %></td>
-            <td><%= micropost.content %></td>
-            <td><%= micropost.category.name %></td>
-            <td><%= micropost.status %></td>
-            <td><%= micropost.create_on %></td>
-            <td><%= micropost.priority %></td>
-            <td><%= link_to "編集" ,edit_micropost_path(micropost.id) %></td>
-            <td><%= link_to "削除" ,micropost ,method: :delete, data: { confirm:"Are you sure?"} %></td>                    
-        </tr>
-        <% end %>
-    </table>
-<p><%= link_to "Back", microposts_path %></p>
+                <% @micropost.each do |micropost| %>
+                <tr>
+                    <td><%= micropost.title %></td>
+                    <td><%= micropost.content %></td>
+                    <td><%= micropost.category.name %></td>
+                    <td><%= micropost.status %></td>
+                    <td><%= micropost.create_on %></td>
+                    <td><%= micropost.priority %></td>
+                    <td><%= link_to "編集" ,edit_micropost_path(micropost.id) %></td>
+                    <td><%= link_to "削除" ,micropost ,method: :delete, data: { confirm:"Are you sure?"} %></td>                    
+                </tr>
+                <% end %>
+            </table>
+        <p><%= link_to "Back", microposts_path %></p>
+        </div>
+    </div>
 </div>

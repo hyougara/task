@@ -1,11 +1,17 @@
 <% provide(:title, @user.name) %>
-<h1>
-  <%# <%= default_image @user %>
-  <%= image_tag "default.png" ,alt: "default", class:"default-image", size: "60x60" %> 
-  <%= @user.name %>
-</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="user-page">
+      <h1>
+        <%# <%= default_image @user %>
+        <%= image_tag "default.png" ,alt: "default", class:"default-image", size: "60x60" %> 
+        <%= @user.name %>
+      </h1>
 
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Task', microposts_path %>
+      <%= link_to 'Edit', edit_user_path(@user) %> |
+      <%= link_to 'Task', microposts_path %>
+    </div>
+  </div>
+</div>

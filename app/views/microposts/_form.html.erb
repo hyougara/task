@@ -1,36 +1,41 @@
-<%= form_for @micropost do |form| %>
 
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+    <%= form_for @micropost do |form| %>
+        <div class="form">
+            <div class="field">
+                <%= form.label :title %>
+                <%= form.text_field :title %>
+            </div>
 
-<div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-</div>
+            <div class="field">
+                <%= form.label :content %>
+                <%= form.text_field :content %>
+            </div>
 
-<div class="field">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-</div>
+            <div class="field">
+                <%= form.label :category_id %>
+                <%= form.collection_select :category_id, Category.all, :id, :name %>
+            </div>
 
-<div class="field">
-    <%= form.label :category_id %>
-    <%= form.collection_select :category_id, Category.all, :id, :name %>
-</div>
+            <div class="field">
+                <%= form.label :status %>
+                <%= form.select :status, Micropost.statuses.keys, :selected=>Micropost.statuses[@micropost.status] %>
+            </div>
 
-<div class="field">
-    <%= form.label :status %>
-    <%= form.select :status, Micropost.statuses.keys, :selected=>Micropost.statuses[@micropost.status] %>
-</div>
+            <div class="field">
+                <%= form.label :create_on ,"期限" %>
+                <%= form.date_select :create_on , use_month_numbers: true%>
+            </div>
+            <div class="field">
+                <%= form.label :priority ,"優先度" %>
+                <%= form.select :priority ,Micropost.priorities.keys %>
+            </div>
 
-<div class="field">
-    <%= form.label :create_on ,"期限" %>
-    <%= form.date_select :create_on , use_month_numbers: true%>
+            <div class="actions">
+                <%= form.submit "作成"%>
+            </div>
+            <% end %>
+        </div>
+    </div>
 </div>
-<div class="field">
-    <%= form.label :priority ,"優先度" %>
-    <%= form.select :priority ,Micropost.priorities.keys %>
-</div>
-
-<div class="actions">
-    <%= form.submit "作成"%>
-</div>
-<% end %>

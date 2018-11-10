@@ -7,7 +7,7 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: 確認用
-     
+        
       micropost:
           title: タイトル
           content: 内容

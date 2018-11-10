@@ -1,4 +1,7 @@
 ja:
-  views:
+  users:
+    index:
+      name: 名前
+
     pagination:
       first:  "先"

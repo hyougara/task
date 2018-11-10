@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
-    before_action :get_category
+    # before_action :get_category
 
     include SessionsHelper
 
 
-    def get_category
-        @category = Category.all
-    end
+    # def get_category
+    #     @category = Category.all
+    # end
 
 end

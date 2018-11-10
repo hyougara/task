@@ -5,7 +5,6 @@ class MicropostsController < ApplicationController
   
   def index
     # @micropost = Micropost.all
-    @category = Category.all
     # viewのformで取得したパラメーターをモデルに返す
     # @micropost = Micropost.search(params[:search])
 
@@ -62,7 +61,7 @@ class MicropostsController < ApplicationController
     end
 # micropost_paramsを定義
     def micropost_params
-      params.require(:micropost).permit(:title, :content, :category_in, :status, :user_id, :create_on, :title_cont,
-        :category_id_in, :status_in, :priority, :create_on_in)
+      params.require(:micropost).permit(:title, :content, :status, :user_id, :create_on, :title_cont,
+                    :status_in, :priority, :create_on_in)
     end
 end

@@ -11,11 +11,6 @@
                 </div>
 
                 <div class="form-group">
-                    <%= f.label :category, "カテゴリ" %> 
-                    <%= f.collection_select :category_id_in, @category,:id ,:name ,:include_blank => '指定なし' %>
-                </div>
-
-                <div class="form-group">
                     <%= f.label :priority , "優先度" %> 
                     <%= f.select :priority_in, Micropost.priorities_i18n.invert, :include_blank => '指定なし' %>
                 </div>
@@ -33,7 +28,6 @@
                 <tr>
                     <th>タイトル</th>
                     <th>内容</th>
-                    <th>カテゴリ</th>
                     <th>進捗度</th>
                     <th><%= sort_link(@search,:create_on,"期限") %></th>
                     <th>優先度</th>
@@ -43,7 +37,6 @@
                 <tr>
                     <td><%= micropost.title %></td>
                     <td><%= micropost.content %></td>
-                    <td><%= micropost.category.name %></td>
                     <td><%= micropost.status %></td>
                     <td><%= l micropost.create_on, format: :dot %></td><%# 頭のlを追加してformatを設定したら簡単に/とか入れられる .ja.ymlに定義する%>
                     <td><%= micropost.priority %></td>

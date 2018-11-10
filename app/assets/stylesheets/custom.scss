@@ -10,12 +10,10 @@ body {
     background-color: antiquewhite;
 }
 
-.content{
-    display: inline;
+
+.create-account p{
+    margin: 0 ;
 }
-// .create-task{
-//     display: inline;
-// }
 
 // --- header ---
 header {
@@ -74,6 +72,8 @@ nav li .drop-down li :hover{
     text-align: center;
 
 }
+
+
 // --- form---
 .form{
 
@@ -91,7 +91,13 @@ nav li .drop-down li :hover{
 .title-logo{
     margin-left:30px;
 }
+.search-form{
+    margin-left:300px;
+    .search{
+        display: flex;
 
+    }
+}
 
 .col-md-6{
     margin-left:0;
@@ -113,7 +119,13 @@ nav li .drop-down li :hover{
 
 // --- micropost ---
 
+.micropost{
 
+    li{
+        list-style: none;
+    }
+    
+}
 
 
 
@@ -137,10 +149,3 @@ footer{
     }
 }
 
-.micropost{
-
-    li{
-        list-style: none;
-    }
-    
-}

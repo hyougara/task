@@ -5,8 +5,8 @@ class Micropost < ApplicationRecord
     belongs_to :category
     # belongs_to :user
     # enumで状態を定義する(未着手、着手、完了)
-    enum status:{draft: 0 ,woking: 1 ,published: 2}
-    enum priority:{row: 0 ,medium: 1 ,high: 2}
+    enum status:{draft: 0 ,working: 1 ,published: 2}
+    enum priority:{low: 0 ,medium: 1 ,high: 2}
     # デフォルトで投稿が降順になる、全てのクエリに適用
     # default_scope -> {order(created_at: :desc) }    
     
@@ -22,5 +22,8 @@ class Micropost < ApplicationRecord
     #     limit_order = Micropost.order(create_on: :desc)
     # end
 
-
+    # irb(main):028:0> Micropost.statuses_i18n
+    # => {"draft"=>"未着手", "woking"=>"Woking", "published"=>"完了"}
+    # irb(main):029:0> Micropost.statuses_i18n.invert
+    # => {"未着手"=>"draft", "Woking"=>"woking", "完了"=>"published"}
 end

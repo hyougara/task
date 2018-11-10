@@ -7,7 +7,7 @@
                 </div>
                 <div class="form-group">
                     <%= f.label :status, "進捗度" %>
-                    <%= f.select :status_in,Micropost.statuses, :include_blank =>'指定なし' %>
+                    <%= f.select :status_in,Micropost.statuses_i18n.invert, :include_blank =>'指定なし' %>
                 </div>
 
                 <div class="form-group">
@@ -17,7 +17,7 @@
 
                 <div class="form-group">
                     <%= f.label :priority , "優先度" %> 
-                    <%= f.select :priority_in, Micropost.priorities, :include_blank => '指定なし' %>
+                    <%= f.select :priority_in, Micropost.priorities_i18n.invert, :include_blank => '指定なし' %>
                 </div>
                             <div class="form-group">
                     <%=f.label :create_on, "期限" %> 
@@ -45,7 +45,7 @@
                     <td><%= micropost.content %></td>
                     <td><%= micropost.category.name %></td>
                     <td><%= micropost.status %></td>
-                    <td><%= micropost.create_on %></td>
+                    <td><%= l micropost.create_on, format: :dot %></td><%# 頭のlを追加してformatを設定したら簡単に/とか入れられる .ja.ymlに定義する%>
                     <td><%= micropost.priority %></td>
                     <td><%= link_to "編集" ,edit_micropost_path(micropost.id) %></td>
                     <td><%= link_to "削除" ,micropost ,method: :delete, data: { confirm:"Are you sure?"} %></td>                    

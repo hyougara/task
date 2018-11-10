@@ -17,7 +17,7 @@
 
             <div class="field">
                 <%= form.label :status %>
-                <%= form.select :status, Micropost.statuses.keys, :selected=>Micropost.statuses[@micropost.status] %>
+                <%= form.select :status, Micropost.statuses_i18n.invert %>
             </div>
 
             <div class="field">
@@ -26,7 +26,8 @@
             </div>
             <div class="field">
                 <%= form.label :priority ,"優先度" %>
-                <%= form.select :priority ,Micropost.priorities.keys %>
+                <%= form.select :priority, Micropost.priorities_i18n.invert %>
+                
             </div>
 
             <div class="actions">

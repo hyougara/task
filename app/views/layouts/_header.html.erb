@@ -3,50 +3,52 @@
 <%# <h1><%= link_to root_path , target:"_blank" do %>
     <%# <%= image_tag"logo.PNG" %>
     <%# <% end</h1> %>
-<h1><%= link_to image_tag("logo.PNG",alt:"logo", size:"300x150"),root_path %></h1>
-    <div class="header-list">
-        <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default"><li><%= link_to "Home", root_path %></li></button>
-            <button type="button" class="btn btn-default"><li><%= link_to "Sign up", signup_path  %></li></button>
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Category
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><%= link_to @category.name, categories_path %></li>
-                </ul>
-            </div>
+<div class="header-logo">
+    <h1><%= link_to image_tag("logo.PNG",alt:"logo", size:"300x150"),root_path %></h1>
+</div>
+<div class="header-list">
+    <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default"><li><%= link_to "Home", root_path  %></li></button>
+        <button type="button" class="btn btn-default"><li><%= link_to "Sign up", signup_path  %></li></button>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Category
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><%= link_to @category.name, categories_path %></li>
+            </ul>
+        </div>
 
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Task
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><%= link_to "New Task", new_micropost_path %></li>
-                    <li><%= link_to "Task一覧", microposts_path %></li>
-                </ul>
-            </div>
-            <% if logged_in?%>
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    MY page ▼
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><%= link_to "My account" ,current_user %></li>
-                    <li><%= link_to "User一覧" ,users_path %></li>
-                    <li><%= link_to "Setting" ,edit_user_path(current_user) %></li>
-                    <li><%= link_to "Log out" , logout_path ,method: :delete %></li>
-                    <% else %>
-                    <button type="button" class="btn btn-default"><li><%= link_to "Log in", login_path %></li></button>
-                    <% end %>
-                </ul>
-            </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Task
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><%= link_to "New Task", new_micropost_path %></li>
+                <li><%= link_to "Task一覧", microposts_path %></li>
+            </ul>
+        </div>
+        <% if logged_in?%>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                MY page ▼
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><%= link_to "My account" ,current_user %></li>
+                <li><%= link_to "User一覧" ,users_path %></li>
+                <li><%= link_to "Setting" ,edit_user_path(current_user) %></li>
+                <li><%= link_to "Log out" , logout_path ,method: :delete %></li>
+                <% else %>
+                <button type="button" class="btn btn-default"><li><%= link_to "Log in", login_path %></li></button>
+                <% end %>
+            </ul>
         </div>
     </div>
+</div>
 </header>

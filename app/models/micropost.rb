@@ -3,7 +3,7 @@ class Micropost < ApplicationRecord
     validates :content,presence:true, length:{maximum:255}
     # カテゴリに属している
     # belongs_to :category
-    # belongs_to :user
+    belongs_to :user
     # enumで状態を定義する(未着手、着手、完了)
     enum status:{draft: 0 ,working: 1 ,published: 2}
     enum priority:{low: 0 ,medium: 1 ,high: 2}

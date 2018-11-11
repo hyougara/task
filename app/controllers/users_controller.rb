@@ -1,13 +1,17 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user , only: [:index, :edit, :update]
+  before_action :logged_in_user , only: [:index, :edit, :update, :destroy]
+  before_action :admin_user, only: [:destroy]
   # before_action :correct_user ,only: [:edit, :destroy]
 
   def index
     @users = User.all
+
   end
   
   def show
+    @micropost = Micropost.page(params[:page])
+
   end
 
   def new
@@ -30,15 +34,16 @@ class UsersController < ApplicationController
 
   def update
       if @user.update(user_params)
-         redirect_to @user, notice: 'User was successfully updated.' 
+          redirect_to @user, notice: 'User was successfully updated.' 
       else
         render :edit 
       end
   end
 
   def destroy
-    @user.destroy
-      redirect_to users_url, notice: 'User was successfully destroyed.' 
+    User.find_by(params[:id]).destroy
+    flash[:success] = "User deleted"
+      redirect_to users_url
   end
 
   private
@@ -49,17 +54,21 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation,:image,)
     end
-# ログイン済みか確認
-    def logged_in_user
-      unless logged_in?
-        flash[:danger] =  "ログインしてください"
-        redirect_to login_path
-      end 
-    end
+# ログイン済みか確認. micropostと関連付けたらapplication_controller.rbに移動させる(全体に反映させるため)
+    # def logged_in_user
+    #   unless logged_in?
+    #     flash[:danger] =  "ログインしてください"
+    #     redirect_to login_path
+    #   end 
+    # end
 
     # 正しいユーザーか確認
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
+    end
+# 管理者かどうか確認する
+    def admin_user
+      redirect_to(root_path) unless current_user.admin?
     end
 end

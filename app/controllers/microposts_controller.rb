@@ -2,6 +2,7 @@ class MicropostsController < ApplicationController
 
   # before_actionを定義すれば共通で使用出来、各action前に実行される
   before_action :set_micropost, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user , only: [:create, :destroy]
   
   def index
     # @micropost = Micropost.all
@@ -25,11 +26,10 @@ class MicropostsController < ApplicationController
   end
 
   def create
-    @micropost = Micropost.new(micropost_params)
-    
+    @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
       flash.now[:succese] = "登録しました"
-      redirect_to microposts_path
+      redirect_to microposts_url
     else
       flash.now[:danger] = "登録できませんでした"
       render "new"

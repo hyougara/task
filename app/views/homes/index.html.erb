@@ -1,6 +1,10 @@
 <div class="container">
     <div class="content">
         <h1>Task Manager</h1>
+        <% if logged_in? %>
+        <%= link_to "Task作成する" ,new_micropost_path %>
+        <% end %>
+        
         <h2>自己管理はちゃんとしましょう</h2>
         <div class="create-account">
             <p>アカウントを作成する方はこちら</p>

@@ -1,0 +1,8 @@
+<li>
+  <%= image_tag "default.png" ,alt: "default", class:"default-image", size: "60x60" %> 
+  <%= link_to user.name ,user %>
+  <%# 管理者にのみ表示 %>
+  <% if current_user.admin? && !current_user?(user) %> |
+  <%= link_to "delete", user, method: :delete, data:{ confirm:"ホントに消すの?"} %>
+  <% end %>
+</li>

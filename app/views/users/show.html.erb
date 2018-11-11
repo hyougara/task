@@ -2,16 +2,23 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <div class="user-page">
-      <h1>
-        <%# <%= default_image @user %>
-        <%= image_tag "default.png" ,alt: "default", class:"default-image", size: "60x60" %> 
-        <%= @user.name %>
-      </h1>
-
-
-
+      <%= paginate @micropost  %>
+    <% if @user.microposts.any? %>
+      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @micropost %>
+      </ol>
+    </div>
+      <%# <li > %>
+        <%# <span class="user"><%= link_to microposts.user.name, microposts.user</span> %>
+        <%# <span class="content"><%= micropost.content</span> %>
+        <%# <span class="timestamp">Posted<%= time_ago_in_words(micropost.created_at)ago.</span>  %>
+      <%# </li> %>
+      <% end %>
       <%= link_to 'Edit', edit_user_path(@user) %> |
       <%= link_to 'Task', microposts_path %>
+
+      <%= paginate @micropost %>
     </div>
   </div>
 </div>

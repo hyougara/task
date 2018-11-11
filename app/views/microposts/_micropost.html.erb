@@ -1,0 +1,7 @@
+<li id="micropost-<%= micropost.id %>">
+  <span ><%= image_tag "default.png" ,alt: "default", class:"default-image", size: "60x60" %></span> 
+  <span class="user"><%= link_to micropost.user.name,micropost.user%></span>
+  <span class="title""><%= micropost.title %></span>
+  <span class="content"><%= micropost.content %></span>
+  <span class="timetamp">投稿<%=time_ago_in_words(micropost.created_at) %>前</span>
+</li>

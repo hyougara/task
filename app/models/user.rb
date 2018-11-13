@@ -5,4 +5,8 @@ class User < ApplicationRecord
     has_secure_password
     # has_many :categories 
     has_many :microposts ,dependent: :destroy
+    def feed
+        Micropost.where("user_id = ?", id)
+    end
+
 end

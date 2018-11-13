@@ -1,37 +1,36 @@
 <%= form_with(model: user, local: true) do |form| %>
-      <%= render "shared/error_messages" %>
-
-      <div class="field">
-        <div class="field-title">
-          <%= form.label :name %>
-          <%= form.text_field :name %>
-        </div>
+  <%= render 'shared/error_messages'%>
+    <div class="field">
+      <div class="field-title">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
       </div>
+    </div>
 
-      <div class="field">
-        <div class="field-title">
-          <%= form.label :email %>
-          <%= form.email_field :email %>
-        </div>
+    <div class="field">
+      <div class="field-title">
+        <%= form.label :email %>
+        <%= form.email_field :email %>
       </div>
+    </div>
 
 
-      <div class="field">
-        <div class="field-title">
-          <%= form.label :password %>
-          <%= form.password_field :password %>
-        </div>
+    <div class="field">
+      <div class="field-title">
+        <%= form.label :password %>
+        <%= form.password_field :password %>
       </div>
+    </div>
 
-      <div class="field">
-        <div class="field-title">
-          <%= form.label :password_confirmation %>
-          <%= form.password_field :password_confirmation %>
-        </div>
+    <div class="field">
+      <div class="field-title">
+        <%= form.label :password_confirmation %>
+        <%= form.password_field :password_confirmation %>
       </div>
+    </div>
 
-      <div class="actions">
-        <%= form.submit %>
-      </div>
-    <p><%= link_to 'Back', root_path %></p> 
-    <% end %>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <p><%= link_to 'Back', root_path %></p> 
+  <% end %>

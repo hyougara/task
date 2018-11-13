@@ -1,0 +1,25 @@
+<%= form_for(@micropost) do |f| %>
+  <%# <%= render 'shared/error_messages',object: f.object %>
+  <div class="field">
+    <%= f.text_field :title, placeholder: "new title" %>
+  </div>
+  <div class="field">
+    <%= f.text_area :content,placeholder: "new micropost" %>
+  </div>
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.select :status, Micropost.statuses_i18n.invert %>
+  </div>
+
+  <div class="field">
+      <%= f.label :create_on ,"期限" %>
+      <%= f.date_select :create_on , use_month_numbers: true%>
+  </div>
+  <div class="field">
+      <%= f.label :priority ,"優先度" %>
+      <%= f.select :priority, Micropost.priorities_i18n.invert %>
+  </div>
+  <div class="actions">
+    <%= f.submit "post", class: "btn btn-info" %>
+  </div>
+<% end %>

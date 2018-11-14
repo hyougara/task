@@ -31,6 +31,7 @@
             <th>進捗度</th>
             <th><%= sort_link(@search,:create_on,"期限") %></th>
             <th>優先度</th>
+            <th>tag</th>
         </tr>
 
         <% @micropost.each do |micropost| %>
@@ -40,7 +41,7 @@
             <td><%= micropost.status %></td>
             <td><%= l micropost.create_on, format: :dot %></td><%# 頭のlを追加してformatを設定したら簡単に/とか入れられる .ja.ymlに定義する%>
             <td><%= micropost.priority %></td>
-            <td><%= link_to "編集" ,edit_micropost_path(micropost.id) %></td>
+            <td><%= render 'microposts/tag',tag_list: micropost.tag_list %></td>
             <td><%= link_to "削除" ,micropost ,method: :delete, data: { confirm:"Are you sure?"} %></td>                    
         </tr>
         <% end %>

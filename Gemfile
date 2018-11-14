@@ -7,7 +7,7 @@ gem "jquery-ui-rails"
 gem "jquery-rails"
 gem "rails-i18n"
 gem 'enum_help'
-gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on', github: 'Fodoj/acts-as-taggable-on', branch: 'rails-5.2'
 gem 'kaminari'
 gem 'ransack'
 

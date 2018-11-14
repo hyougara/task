@@ -19,6 +19,10 @@
       <%= f.label :priority ,"優先度" %>
       <%= f.select :priority, Micropost.priorities_i18n.invert %>
   </div>
+  <div class="field">
+    <%= f.label :tag_list ,"タグ(カンマ区切り)" %>
+    <%= text_field_tag 'micropost[tag_list]', @micropost.tag_list.join(',') %>
+  </div>
   <div class="actions">
     <%= f.submit "post", class: "btn btn-info" %>
   </div>

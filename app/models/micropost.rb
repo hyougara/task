@@ -8,7 +8,10 @@ class Micropost < ApplicationRecord
     enum status:{draft: 0 ,working: 1 ,published: 2}
     enum priority:{low: 0 ,medium: 1 ,high: 2}
     # デフォルトで投稿が降順になる、全てのクエリに適用
-    # default_scope -> {order(created_at: :desc) }    
+    # default_scope -> {order(created_at: :desc) }
+    #:labels  post.label_listが追加される タグのリスト名を決められる    
+    acts_as_taggable_on  :tag
+    # acts_as_taggable # acts_as_taggable_on :tags のエイリアス
     
     def self.search(search)# selfでクラスメソッドとしてる
         if search # Controllerから渡されたパラメーターが!= nilの場合は、titleカラムを部分一致検索

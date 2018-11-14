@@ -28,6 +28,7 @@ class MicropostsController < ApplicationController
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
+
     if @micropost.save
       flash.now[:succese] = "登録しました"
       redirect_to microposts_url
@@ -64,12 +65,12 @@ class MicropostsController < ApplicationController
 # micropost_paramsを定義
     def micropost_params
       params.require(:micropost).permit(:title, :content, :status, :user_id, :create_on, :title_cont,
-                    :status_in, :priority, :create_on_in)
+                    :status_in, :priority, :create_on_in, :tag_list)
     end
 
     def currect_user
       @micropost = current_user.microposts.find_by(id: params[:id])
-      redirect_to root_path if @micropost.nill?
+      redirect_to root_path #if @micropost.nill?
     end
 
 end

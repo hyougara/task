@@ -10,6 +10,8 @@ gem 'enum_help'
 gem 'acts-as-taggable-on', github: 'Fodoj/acts-as-taggable-on', branch: 'rails-5.2'
 gem 'kaminari'
 gem 'ransack'
+gem "rails_admin"
+gem "cancancan"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'

@@ -21,6 +21,8 @@ class Micropost < ApplicationRecord
         end
     end
 
+
+
     # def limit_order
     #     limit_order = Micropost.order(create_on: :desc)
     # end

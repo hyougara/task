@@ -31,7 +31,7 @@ class MicropostsController < ApplicationController
 
     if @micropost.save
       flash.now[:succese] = "登録しました"
-      redirect_to microposts_url
+      redirect_to root_path
     else
       flash.now[:danger] = "登録できませんでした"
       render "new"

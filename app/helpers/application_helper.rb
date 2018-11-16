@@ -11,4 +11,5 @@ module ApplicationHelper
     def get_image(path)
         path.present? ? path : asset_path('no-image.png')
     end
+
 end
